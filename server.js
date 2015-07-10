@@ -35,8 +35,6 @@ if(program.disableheartbeats) {
     io.set("heartbeats", false)
 }
 
-io.set("log level", 0);
-
 
 //
 // LISTENERS
