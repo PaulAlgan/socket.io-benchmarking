@@ -41,7 +41,7 @@ if(program.disableheartbeats) {
 //
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 
@@ -51,9 +51,8 @@ app.get('/', function (req, res) {
 var connectedUsersCount = 0;
 var messagesPerSecond = 0;
 
-io.sockets.on('connection', function(socket) {
+io.sockets.on('connect', function(socket) {
     connectedUsersCount++;
-
     socket.on('chat', function(data) {
         // logger.info("chat message arrived");
         io.sockets.emit('chat', {text:data.text});
