@@ -52,13 +52,16 @@ app.get('/', function (req, res) {
 var connectedUsersCount = 0;
 var messagesPerSecond = 0;
 
-io.sockets.on('connect', function(socket) {
+io.sockets.on('connection', function(socket) {
     connectedUsersCount++;
     socket.on('chat', function(data) {
         // logger.info("chat message arrived");
-        io.sockets.emit('chat', {text:data.text});
+        // console.log(data);
+        if (data != null) {
+          io.emit('chat', {text:data.text});
+          messagesPerSecond++;
+        }
 
-        messagesPerSecond++;
     });
 
     socket.on('disconnect', function(data) {
