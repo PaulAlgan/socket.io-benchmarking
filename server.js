@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var io = require('socket.io').listen(1234);
+var io = require('socket.io').listen(1234),
     logger = require('winston'),
     program = require('commander');
 
