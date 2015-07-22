@@ -53,7 +53,7 @@ var connectedUsersCount = 0;
 var messagesPerSecond = 0;
 
 io.sockets.on('connection', function(socket) {
-  console.log("connection");
+  // console.log("connection");
     connectedUsersCount++;
     socket.on('chat', function(data) {
         // logger.info("chat message arrived");
@@ -66,7 +66,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('disconnect', function(data) {
-        console.log("disconnect");
+        // console.log("disconnect");
         connectedUsersCount--;
     });
 });
