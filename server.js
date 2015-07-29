@@ -57,9 +57,9 @@ io.sockets.on('connection', function(socket) {
     connectedUsersCount++;
     socket.on('chat', function(data) {
         // logger.info("chat message arrived");
-        // console.log(data);
+        // console.log("msg arrived: "+data.text);
         if (data != null) {
-          io.emit('chat', {text:data.text});
+          socket.emit('chat', {text:data.text});
           messagesPerSecond++;
         }
 
